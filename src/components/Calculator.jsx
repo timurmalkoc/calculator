@@ -1,14 +1,16 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 export default function Calculator(props) {
     const [firstNum, setFirstNum] = useState(0);
     const [secondNum, setSecondNum] = useState(0);
     const [operator, setOperator] = useState(null);
-    // props.flashMessage('Encountered an issue, Please try again !', 'danger')
+
+    useEffect(() => {
+        props.flashMessage('Calculator 1.0', 'success')
+    },[])
 
     const numberClickHandler = e => {
-        console.log(e.target.innerHTML)
         if(operator){
             if(e.target.innerHTML != "." || (e.target.innerHTML == '.' && !(secondNum.includes('.')))){
                 secondNum == 0 ? setSecondNum(e.target.innerHTML) : setSecondNum(secondNum+e.target.innerHTML)
@@ -68,12 +70,14 @@ export default function Calculator(props) {
     const percent = () => {
         setFirstNum(firstNum/100)
     }
-    console.log(firstNum.length)
+
+    
+    
     return (
     <>
         <h1>Simple React Calculator</h1>
         <div className='calculator'>
-            <div className={`display '`}>
+            <div className='display'>
                 <p className='display-text'>{secondNum!=0 ?  secondNum: firstNum}</p>
             </div>
             <div className='keypad'>

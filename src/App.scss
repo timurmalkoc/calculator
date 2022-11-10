@@ -45,20 +45,17 @@ h1 {
 .display{
     color: white;
     background: #1c191c;
-    line-height: 130px;
-    font-size: 6em;
+    line-height: 120px;
+    font-size: 4em;
     text-align: right;
     font-weight: 50;
     border-radius: 10px 10px 0 0;
-    padding-right: .5rem;
+    padding-right: 1rem;
     margin: 0;
     width: 100%; 
+    overflow: hidden;
 }
 
-
-.size{
-    font-size: 1rem;
-}
 
 .keypad{
     margin-top: -1rem;
