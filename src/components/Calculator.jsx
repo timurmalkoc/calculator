@@ -8,12 +8,17 @@ export default function Calculator(props) {
     // props.flashMessage('Encountered an issue, Please try again !', 'danger')
 
     const numberClickHandler = e => {
-        operator ? 
-        secondNum == 0 ?
-        setSecondNum(e.target.innerHTML): setSecondNum(secondNum+e.target.innerHTML):
-        firstNum == 0 ?
-        setFirstNum(e.target.innerHTML) : setFirstNum(firstNum+e.target.innerHTML);
-        
+        console.log(e.target.innerHTML)
+        if(operator){
+            if(e.target.innerHTML != "." || (e.target.innerHTML == '.' && !(secondNum.includes('.')))){
+                secondNum == 0 ? setSecondNum(e.target.innerHTML) : setSecondNum(secondNum+e.target.innerHTML)
+            }
+        }
+        else{
+            if(e.target.innerHTML != '.' || (e.target.innerHTML == '.' && !(firstNum.includes('.')))){
+                firstNum == 0 ? setFirstNum(e.target.innerHTML) : setFirstNum(firstNum+e.target.innerHTML);
+            }
+        }
     }
 
     const operatorClickHandler = e => {
