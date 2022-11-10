@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import Calculator from './components/Calculator'
+import AlertMessage from './components/AlertMessage';
+import { useState } from 'react'
+import './App.scss'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  const [message, setMessage] = useState(null);
+  const [category, setCategory] = useState(null);
+  const flashMessage = (message, category) => {
+    setMessage(message);
+    setCategory(category);
+  }
+
+  return(
+    <>
+      {message ? <AlertMessage message={message} category={category} flashMessage={flashMessage} /> : null}
+      <div className='container'>
+        <Calculator flashMessage={flashMessage}/>
+      </div>
+    </>
   );
+
 }
 
 export default App;
