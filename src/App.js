@@ -13,8 +13,9 @@ function App() {
 
   return(
     <>
-      {message ? <AlertMessage message={message} category={category} flashMessage={flashMessage} /> : null}
+      
       <div className='container container-fluid'>
+      {message ? <AlertMessage message={message} category={category} flashMessage={flashMessage} /> : null}
         <Calculator flashMessage={flashMessage}/>
       </div>
     </>
